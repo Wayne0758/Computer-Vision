@@ -1,7 +1,7 @@
 import cv2
 
 # Load the image
-image = cv2.imread('G:\Machine Learning\CV\IMG_1223.jpg')
+image = cv2.imread('milestone1\IMG_1223.JPG')
 image = cv2.resize(image, (800, 600))  # Resize to fit screen
 
 # Example list of points [(x1, y1), (x2, y2), ...]
