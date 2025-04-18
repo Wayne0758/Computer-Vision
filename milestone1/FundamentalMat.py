@@ -76,7 +76,7 @@ class FundamentalMat:
                 x0, y0 = 0, int(-c / b) if b != 0 else 0
                 x1, y1 = w, int(-(c + a * w) / b) if b != 0 else h
                 color = tuple(np.random.randint(0, 255, 3).tolist())
-                img_color = cv2.line(img_color, (x0, y0), (x1, y1), color, 1)
+                img_color = cv2.line(img_color, (x0, y0), (x1, y1), color, 5)
                 img_color = cv2.circle(img_color, tuple(pt.astype(int)), 5, color, -1)
             return img_color
 
