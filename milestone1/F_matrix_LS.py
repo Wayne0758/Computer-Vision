@@ -139,6 +139,6 @@ def draw_epipolar_lines(img1, img2, pts1, pts2, F):
     plt.tight_layout()
     plt.show()
 
-img_A = cv2.resize(cv2.imread('G:\Machine Learning\CV\IMG_1223.jpg'), (800, 600))
-img_B = cv2.resize(cv2.imread('G:\Machine Learning\CV\IMG_1224.jpg'), (800, 600))
+img_A = cv2.resize(cv2.imread('milestone1\IMG_1223.JPG'), (800, 600))
+img_B = cv2.resize(cv2.imread('milestone1\IMG_1224.JPG'), (800, 600))
 draw_epipolar_lines(img_A, img_B, pts_A, pts_B, F1)
