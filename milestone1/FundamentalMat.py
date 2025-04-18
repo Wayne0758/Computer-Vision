@@ -42,7 +42,7 @@ class FundamentalMat:
 
         return F / F[2, 2]
         
-    def draw_epipolar_lines(self, img1, img2, pts1, pts2, F):
+    def draw_epipolar_lines(self, img1, img2, img3, pts1, pts2, pts3, F1, F3):
         """
         Draws epipolar lines:
         - in img2 for pts1 (using F)
@@ -54,14 +54,18 @@ class FundamentalMat:
         """
         img1 = img1.copy()
         img2 = img2.copy()
+        img3 = img3.copy()
 
         # Convert to homogeneous coordinates
         pts1_h = np.hstack([pts1, np.ones((pts1.shape[0], 1))])
         pts2_h = np.hstack([pts2, np.ones((pts2.shape[0], 1))])
+        pts3_h = np.hstack([pts3, np.ones((pts2.shape[0], 1))])
 
         # Compute epipolar lines using formula
-        lines_in_2 = (F @ pts1_h.T).T     # l' = F x
-        lines_in_1 = (F.T @ pts2_h.T).T   # l  = F^T x'
+        lines_in_21 = (F1 @ pts1_h.T).T     # l' = F x
+        lines_in_12 = (F1.T @ pts2_h.T).T   # l  = F^T x'
+        lines_in_31 = (F3 @ pts1_h.T).T     # l' = F x
+        lines_in_13 = (F3.T @ pts3_h.T).T   # l  = F^T x'
 
         # Draw epipolar lines and points
         def draw_lines(img, lines, pts, color_img=True):
@@ -76,19 +80,19 @@ class FundamentalMat:
                 img_color = cv2.circle(img_color, tuple(pt.astype(int)), 5, color, -1)
             return img_color
 
-        img1_lines = draw_lines(img1, lines_in_1, pts1)
-        img2_lines = draw_lines(img2, lines_in_2, pts2)
+        img1_lines = draw_lines(img2, lines_in_21, pts2)
+        img2_lines = draw_lines(img3, lines_in_31, pts3)
 
         # Display side-by-side
         plt.figure(figsize=(14, 6))
         plt.subplot(121)
         plt.imshow(cv2.cvtColor(img1_lines, cv2.COLOR_BGR2RGB))
-        plt.title("Epipolar Lines in Image A (from pts in B)")
+        plt.title("Epipolar Lines in Image B (from pts in A)")
         plt.axis("off")
 
         plt.subplot(122)
         plt.imshow(cv2.cvtColor(img2_lines, cv2.COLOR_BGR2RGB))
-        plt.title("Epipolar Lines in Image B (from pts in A)")
+        plt.title("Epipolar Lines in Image C (from pts in A)")
         plt.axis("off")
 
         plt.tight_layout()

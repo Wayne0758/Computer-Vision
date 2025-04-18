@@ -17,6 +17,6 @@ HC = np.matmul(H3,np.append(pts_A[8],1))
 CA = [HA[0]/HA[2],HA[1]/HA[2]]
 CB = [HB[0]/HB[2],HB[1]/HB[2]]
 CC = [HC[0]/HC[2],HC[1]/HC[2]]
-print("Validation A-B: Point A:",pts_A[8],"Point B:",pts_B[8],"Reconstructed Point B:",CA)
-print("Validation B-C: Point B:",pts_B[8],"Point C:",pts_C[8],"Reconstructed Point C:",CB)
-print("Validation A-C: Point A:",pts_A[8],"Point C:",pts_C[8],"Reconstructed Point C:",CC)
+print("Validation A-B: Point in A:",pts_A[8],"Point in B:",pts_B[8],"Reconstructed Point:",CA)
+print("Validation B-C: Point in B:",pts_B[8],"Point in C:",pts_C[8],"Reconstructed Point:",CB)
+print("Validation A-C: Point in A:",pts_A[8],"Point in C:",pts_C[8],"Reconstructed Point:",CC)

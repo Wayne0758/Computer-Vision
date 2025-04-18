@@ -18,4 +18,5 @@ F3 = FM.compute_fundamental_matrix_normalized(pts_A[:8], pts_C[:8])
 
 img_A = cv2.imread('G:\Machine Learning\CV\IMG_1223.jpg')
 img_B = cv2.imread('G:\Machine Learning\CV\IMG_1224.jpg')
-FM.draw_epipolar_lines(img_A, img_B, pts_A[8:], pts_B[8:], F1)
+img_C = cv2.imread('G:\Machine Learning\CV\IMG_1226.jpg')
+FM.draw_epipolar_lines(img_A, img_B, img_C, pts_A[8:], pts_B[8:], pts_C[8:], F1, F3)
