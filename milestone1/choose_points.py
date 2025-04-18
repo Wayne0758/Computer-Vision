@@ -100,3 +100,7 @@ def interactive_image_marker(image_path, coord_file):
 
     fig.canvas.mpl_connect('close_event', on_close)
     plt.show()
+
+# interactive_image_marker("milestone1\Data\IMG_1223.JPG", coord_file='milestone1\Data\A.txt')
+# interactive_image_marker("milestone1\Data\IMG_1224.JPG", coord_file='milestone1\Data\B.txt')
+interactive_image_marker("milestone1\Data\IMG_1226.JPG", coord_file='milestone1\Data\C.txt')
