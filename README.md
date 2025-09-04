@@ -1,4 +1,4 @@
-# From Pixels to Point Clouds: End-to-End 3D Reconstruction from Images
+# End-to-End 3D Scene Reconstruction from Images
 
 ## Demo
 
