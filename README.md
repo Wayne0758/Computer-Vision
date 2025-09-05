@@ -22,8 +22,8 @@
 ## Overview
 - Build a modular pipeline for 3D scene reconstruction from images  
 - Implement automatic feature extraction and matching
-- Recovered camera parameters using Structure-from-Motion (SfM)
-- Generate 3D structures from 2D inputs through NeRF
+- Recover camera parameters using Structure-from-Motion (SfM)
+- Synthesize the reconstructed scene via NeRF
 
 ## Milestones
 
